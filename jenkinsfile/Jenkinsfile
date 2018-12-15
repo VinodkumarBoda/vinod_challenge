@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+  stages {
+  stage("Define Release version"){
+      steps {
+      script {
+          env.version = currentBuild.getNumber()
+        }
+      }
+    }
+    stage("Build") {
+      steps {
+        echo "Building..."
+      }
+    }
+    stage("Test") {
+      steps {
+        echo "Running Test..."
+
+      }
+    }
+
+    stage("Artifact PUSH"){
+    steps{
+    script{
+          sh'scp data'
+    }}}
+
+  }
+    //post {
+    //   always {
+    //        slackalert('demo')
+    //  }
+    //}
+}
+

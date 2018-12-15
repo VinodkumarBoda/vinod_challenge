@@ -1,0 +1,1 @@
+demo ansible_host="www.demo.com" ansible_user="root" ansible_ssh_common_args=' -o StrictHostKeyChecking=no'
